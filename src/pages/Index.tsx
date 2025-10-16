@@ -1,0 +1,119 @@
+import { useState } from "react";
+import backgroundGif from "@/assets/background.gif";
+import balaoTela1 from "@/assets/balao-tela-1.png";
+import balaoTela2 from "@/assets/balao-tela-2.png";
+import pergaminhoTela2 from "@/assets/pergaminho-texto-tela-2.png";
+import { AudioPlayer } from "@/components/AudioPlayer";
+import { ChatScreen } from "@/components/ChatScreen";
+import { MainScreen } from "@/components/MainScreen";
+import { PrayersScreen } from "@/components/PrayersScreen";
+
+type Screen = "main" | "screen1" | "screen2" | "screen3" | "prayers";
+
+const Index = () => {
+  const [currentScreen, setCurrentScreen] = useState<Screen>("main");
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const transitionTo = (screen: Screen) => {
+    if (screen === "main" || screen === "prayers" || screen === "screen3") {
+      // No transition for these screens
+      setCurrentScreen(screen);
+    } else {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentScreen(screen);
+        setIsTransitioning(false);
+      }, 500);
+    }
+  };
+
+  return (
+    <main className="relative w-screen h-screen overflow-hidden">
+      {/* Background with blur and overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${backgroundGif})`,
+          filter: "blur(8px)",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
+        }}
+      />
+
+      {/* Audio Player */}
+      <AudioPlayer />
+
+      {/* Content */}
+      <div className="relative z-10 w-full h-full">
+        {/* Main Screen */}
+        {currentScreen === "main" && (
+          <MainScreen
+            onNavigateToChat={() => transitionTo("screen3")}
+            onNavigateToPrayers={() => transitionTo("prayers")}
+          />
+        )}
+
+        {/* Prayers Screen */}
+        {currentScreen === "prayers" && (
+          <PrayersScreen onReturn={() => transitionTo("main")} />
+        )}
+
+        {/* Screen 1 */}
+        {currentScreen === "screen1" && (
+          <div
+            className={`absolute inset-0 flex items-center justify-center p-4 ${
+              isTransitioning ? "animate-fade-out" : "animate-fade-in"
+            }`}
+          >
+            <button
+              onClick={() => transitionTo("screen2")}
+              className="animate-golden-pulse hover:scale-105 transition-transform duration-300 focus:outline-none max-w-[90vw]"
+            >
+              <img
+                src={balaoTela1}
+                alt="Hijo mío, Dios reservó algo especial para ti"
+                className="w-full max-w-md md:max-w-lg h-auto"
+              />
+            </button>
+          </div>
+        )}
+
+        {/* Screen 2 */}
+        {currentScreen === "screen2" && (
+          <div
+            className={`absolute inset-0 flex flex-col items-center justify-center p-4 space-y-6 md:space-y-8 ${
+              isTransitioning ? "animate-fade-out" : "animate-fade-in"
+            }`}
+          >
+            <img
+              src={pergaminhoTela2}
+              alt="Tu fe te ha traído hasta aquí"
+              className="w-full max-w-md md:max-w-2xl h-auto"
+            />
+            <button
+              onClick={() => transitionTo("screen3")}
+              className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none max-w-[90vw]"
+            >
+              <img
+                src={balaoTela2}
+                alt="Haz clic aquí y forma parte de esta cadena de oración"
+                className="w-full max-w-md md:max-w-lg h-auto"
+              />
+            </button>
+          </div>
+        )}
+
+        {/* Screen 3 */}
+        {currentScreen === "screen3" && !isTransitioning && (
+          <ChatScreen onReturn={() => transitionTo("main")} />
+        )}
+      </div>
+    </main>
+  );
+};
+
+export default Index;
