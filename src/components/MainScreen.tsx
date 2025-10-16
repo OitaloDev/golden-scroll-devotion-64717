@@ -86,15 +86,49 @@ export const MainScreen = ({
         <p className="text-base md:text-lg text-[hsl(var(--parchment))] text-center mb-2 max-w-md">
           HAZ CLIC EN EL BOTÓN DE ABAJO PARA
         </p>
-        <p className="text-base md:text-lg text-[hsl(var(--parchment))] text-center mb-6 md:mb-8 max-w-md flex items-center justify-center gap-2">
+        <p className="text-base md:text-lg text-[hsl(var(--parchment))] text-center mb-4 max-w-md">
           ACCEDER A LAS ORACIONES
-          <span className="text-[hsl(var(--gold))] text-2xl">↓</span>
         </p>
+
+        {/* Animated arrows */}
+        <div className="flex gap-4 mb-4">
+          <span 
+            className="text-[hsl(var(--gold))] text-4xl animate-arrow-bounce"
+            style={{ 
+              animationDelay: "0s",
+              textShadow: "0 0 10px hsl(var(--gold-glow))"
+            }}
+          >
+            ↓
+          </span>
+          <span 
+            className="text-[hsl(var(--gold))] text-4xl animate-arrow-bounce"
+            style={{ 
+              animationDelay: "0.2s",
+              textShadow: "0 0 10px hsl(var(--gold-glow))"
+            }}
+          >
+            ↓
+          </span>
+          <span 
+            className="text-[hsl(var(--gold))] text-4xl animate-arrow-bounce"
+            style={{ 
+              animationDelay: "0.4s",
+              textShadow: "0 0 10px hsl(var(--gold-glow))"
+            }}
+          >
+            ↓
+          </span>
+        </div>
 
         {/* Prayers button */}
         <button
           onClick={onNavigateToPrayers}
-          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-8 md:px-12 py-3 md:py-4 rounded-full text-lg md:text-xl font-bold mb-4 md:mb-6 hover:scale-105 transition-transform duration-300 animate-gentle-glow"
+          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-8 md:px-12 py-3 md:py-4 rounded-full text-lg md:text-xl font-bold mb-4 md:mb-6 hover:scale-105 transition-transform duration-300 shadow-lg animate-gentle-glow"
+          style={{
+            boxShadow: "0 0 20px hsl(var(--gold) / 0.5), 0 0 40px hsl(var(--gold-glow) / 0.3)",
+            border: "2px solid hsl(var(--gold))"
+          }}
         >
           ACCEDER A LAS ORACIONES
         </button>
@@ -107,7 +141,11 @@ export const MainScreen = ({
         {/* Support button */}
         <button
           onClick={handleSupportClick}
-          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-8 md:px-12 py-3 md:py-4 rounded-full text-lg md:text-xl font-bold hover:scale-105 transition-transform duration-300 animate-gentle-glow"
+          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-8 md:px-12 py-3 md:py-4 rounded-full text-lg md:text-xl font-bold hover:scale-105 transition-transform duration-300 shadow-lg"
+          style={{
+            boxShadow: "0 0 20px hsl(var(--gold) / 0.5), 0 0 40px hsl(var(--gold-glow) / 0.3)",
+            border: "2px solid hsl(var(--gold))"
+          }}
         >
           QUIERO SOPORTE / REEMBOLSO
         </button>

@@ -60,7 +60,7 @@ export const ChatScreen = ({ onReturn }: ChatScreenProps) => {
     <div className="absolute inset-0 flex flex-col items-center justify-center p-4 animate-fade-in">
       <button
         onClick={onReturn}
-        className="mb-6 animate-golden-pulse hover:scale-105 transition-transform duration-300"
+        className="mb-6 animate-golden-pulse-slow hover:scale-105 transition-transform duration-300"
       >
         <img
           src={balaoTela3}
@@ -75,7 +75,7 @@ export const ChatScreen = ({ onReturn }: ChatScreenProps) => {
           alt="Pergaminho"
           className="absolute inset-0 w-full h-full object-contain"
         />
-        <div className="relative z-10 w-[85%] h-[75%] overflow-y-auto px-6 py-8 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent">
+        <div className="relative z-10 w-[78%] h-[68%] overflow-y-auto px-4 py-6 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent">
           {messages.map((message, index) => (
             <div
               key={index}

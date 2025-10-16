@@ -104,6 +104,16 @@ export default {
             filter: "drop-shadow(0 0 15px hsl(var(--gold-glow))) drop-shadow(0 0 30px hsl(var(--gold-glow) / 0.4))",
           },
         },
+        "arrow-bounce": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+            opacity: "0.7",
+          },
+        },
         "gentle-glow": {
           "0%, 100%": {
             filter: "drop-shadow(0 0 5px hsl(var(--gold) / 0.3))",
@@ -132,12 +142,13 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "golden-pulse": "golden-pulse 2s ease-in-out infinite",
-        "golden-pulse-slow": "golden-pulse-slow 3.5s ease-in-out infinite",
-        "gentle-glow": "gentle-glow 2s ease-in-out infinite",
-        "golden-glow": "golden-glow 2.5s ease-in-out infinite",
+        "golden-pulse": "golden-pulse 4s ease-in-out infinite",
+        "golden-pulse-slow": "golden-pulse-slow 5s ease-in-out infinite",
+        "gentle-glow": "gentle-glow 3s ease-in-out infinite",
+        "golden-glow": "golden-glow 4s ease-in-out infinite",
         "fade-in": "fade-in 0.5s ease-out",
         "fade-out": "fade-out 0.5s ease-out",
+        "arrow-bounce": "arrow-bounce 1.5s ease-in-out infinite",
       },
     },
   },
