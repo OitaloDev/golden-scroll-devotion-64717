@@ -69,17 +69,21 @@ export const ChatScreen = ({ onReturn }: ChatScreenProps) => {
         />
       </button>
 
-      <div className="relative w-full max-w-2xl h-[60vh] flex items-center justify-center">
+      <div className="relative w-full max-w-3xl h-[70vh] md:h-[75vh] flex items-center justify-center">
         <img
           src={pergaminhoChat}
           alt="Pergaminho"
-          className="absolute inset-0 w-full h-full object-contain"
+          className="absolute inset-0 w-full h-full object-contain pointer-events-none"
         />
-        <div className="relative z-10 w-[78%] h-[68%] overflow-y-auto px-4 py-6 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent">
+        <div className="relative z-10 w-[70%] h-[62%] overflow-y-auto px-4 md:px-6 py-4 md:py-6 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent"
+          style={{
+            marginTop: "2%"
+          }}
+        >
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`mb-4 text-[hsl(var(--dark-brown))] text-sm md:text-base leading-relaxed whitespace-pre-line ${
+              className={`mb-4 text-[hsl(var(--dark-brown))] text-xs md:text-sm leading-relaxed whitespace-pre-line ${
                 message.startsWith("Tu mensaje:") ? "italic text-right" : ""
               }`}
             >
@@ -87,17 +91,17 @@ export const ChatScreen = ({ onReturn }: ChatScreenProps) => {
             </div>
           ))}
           {showInput && (
-            <form onSubmit={handleSubmit} className="mt-6">
+            <form onSubmit={handleSubmit} className="mt-4">
               <textarea
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 placeholder="Escribe tu nombre y tópico de oración..."
-                className="w-full p-3 bg-[hsl(var(--secondary))] border-2 border-[hsl(var(--gold))] rounded-lg text-[hsl(var(--dark-brown))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold-glow))] resize-none"
-                rows={4}
+                className="w-full p-2 md:p-3 bg-[hsl(var(--parchment))] border-2 border-[hsl(var(--gold))] rounded-lg text-[hsl(var(--dark-brown))] text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold-glow))] resize-none"
+                rows={3}
               />
               <button
                 type="submit"
-                className="mt-3 w-full py-2 px-4 bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] font-semibold rounded-lg hover:scale-105 transition-transform duration-300 animate-golden-glow"
+                className="mt-2 w-full py-2 px-4 bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] text-sm font-semibold rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 Enviar
               </button>
