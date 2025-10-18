@@ -7,15 +7,16 @@ import { AudioPlayer } from "@/components/AudioPlayer";
 import { ChatScreen } from "@/components/ChatScreen";
 import { MainScreen } from "@/components/MainScreen";
 import { PrayersScreen } from "@/components/PrayersScreen";
+import { WelcomeScreen } from "@/components/WelcomeScreen";
 
-type Screen = "main" | "screen1" | "screen2" | "screen3" | "prayers";
+type Screen = "welcome" | "main" | "screen1" | "screen2" | "screen3" | "prayers";
 
 const Index = () => {
-  const [currentScreen, setCurrentScreen] = useState<Screen>("main");
+  const [currentScreen, setCurrentScreen] = useState<Screen>("welcome");
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const transitionTo = (screen: Screen) => {
-    if (screen === "main" || screen === "prayers" || screen === "screen3") {
+    if (screen === "welcome" || screen === "main" || screen === "prayers" || screen === "screen3") {
       // No transition for these screens
       setCurrentScreen(screen);
     } else {
@@ -49,6 +50,11 @@ const Index = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full h-full">
+        {/* Welcome Screen */}
+        {currentScreen === "welcome" && (
+          <WelcomeScreen onContinue={() => transitionTo("main")} />
+        )}
+
         {/* Main Screen */}
         {currentScreen === "main" && (
           <MainScreen
