@@ -26,9 +26,9 @@ export const WelcomeScreen = ({ onContinue }: WelcomeScreenProps) => {
       {/* Button with animation */}
       <button
         onClick={onContinue}
-        className="relative z-10 animate-golden-pulse hover:scale-105 transition-transform duration-300 focus:outline-none max-w-[90vw] w-full max-w-md md:max-w-lg"
+        className="relative z-10 animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none max-w-[90vw] w-full max-w-md md:max-w-lg"
         style={{
-          filter: "drop-shadow(0 0 30px rgba(218, 165, 32, 0.8))",
+          filter: "drop-shadow(0 0 40px rgba(218, 165, 32, 0.9))",
         }}
       >
         <img

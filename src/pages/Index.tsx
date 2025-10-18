@@ -52,7 +52,7 @@ const Index = () => {
       <div className="relative z-10 w-full h-full">
         {/* Welcome Screen */}
         {currentScreen === "welcome" && (
-          <WelcomeScreen onContinue={() => transitionTo("main")} />
+          <WelcomeScreen onContinue={() => transitionTo("screen2")} />
         )}
 
         {/* Main Screen */}
@@ -95,21 +95,42 @@ const Index = () => {
               isTransitioning ? "animate-fade-out" : "animate-fade-in"
             }`}
           >
-            <img
-              src={pergaminhoTela2}
-              alt="Tu fe te ha traído hasta aquí"
-              className="w-full max-w-md md:max-w-2xl h-auto"
+            {/* Background with blur and overlay */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${backgroundGif})`,
+                filter: "blur(8px)",
+              }}
             />
-            <button
-              onClick={() => transitionTo("screen3")}
-              className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none max-w-[90vw]"
-            >
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+              }}
+            />
+            
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center justify-center space-y-6 md:space-y-8">
               <img
-                src={balaoTela2}
-                alt="Haz clic aquí y forma parte de esta cadena de oración"
-                className="w-full max-w-md md:max-w-lg h-auto"
+                src={pergaminhoTela2}
+                alt="Tu fe te ha traído hasta aquí"
+                className="w-full max-w-md md:max-w-2xl h-auto"
               />
-            </button>
+              <button
+                onClick={() => transitionTo("screen3")}
+                className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none max-w-[90vw] w-full max-w-md md:max-w-lg"
+                style={{
+                  filter: "drop-shadow(0 0 40px rgba(218, 165, 32, 0.9))",
+                }}
+              >
+                <img
+                  src={balaoTela2}
+                  alt="Haz clic aquí y forma parte de esta cadena de oración"
+                  className="w-full h-auto"
+                />
+              </button>
+            </div>
           </div>
         )}
 
