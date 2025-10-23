@@ -60,13 +60,13 @@ export const PrayersScreen = ({ onReturn }: PrayersScreenProps) => {
         }}
       />
 
-      {/* Close button */}
+      {/* Return button */}
       <button
         onClick={onReturn}
-        className="fixed top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] flex items-center justify-center hover:scale-110 transition-transform duration-300"
-        aria-label="Cerrar"
+        className="fixed top-4 left-4 md:top-6 md:left-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] flex items-center justify-center hover:scale-110 transition-transform duration-300"
+        aria-label="Volver"
       >
-        <X className="w-6 h-6 md:w-7 md:h-7 text-[hsl(var(--dark-brown))]" />
+        <span className="text-[hsl(var(--dark-brown))] text-xl md:text-2xl font-bold">←</span>
       </button>
 
       {/* Content */}
