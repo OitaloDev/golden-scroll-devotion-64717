@@ -145,7 +145,10 @@ const Index = () => {
 
         {/* Screen 3 */}
         {currentScreen === "screen3" && !isTransitioning && (
-          <ChatScreen onReturn={() => transitionTo("screen2")} />
+          <ChatScreen 
+            onReturn={() => transitionTo("screen2")} 
+            onGoToWelcome={() => transitionTo("welcome")}
+          />
         )}
       </div>
     </main>

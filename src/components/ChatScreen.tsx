@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import pergaminhoChat from "@/assets/pergaminho-chat-tela-3.png";
 import balaoTela3 from "@/assets/balao-tela-3.png";
+import balaoTela2 from "@/assets/balao-tela-2.png";
 
 interface ChatScreenProps {
   onReturn: () => void;
+  onGoToWelcome: () => void;
 }
 
-export const ChatScreen = ({ onReturn }: ChatScreenProps) => {
+export const ChatScreen = ({ onReturn, onGoToWelcome }: ChatScreenProps) => {
   const [messages, setMessages] = useState<string[]>([]);
   const [userInput, setUserInput] = useState("");
   const [showInput, setShowInput] = useState(false);
@@ -105,6 +107,23 @@ export const ChatScreen = ({ onReturn }: ChatScreenProps) => {
           )}
           <div ref={chatEndRef} />
         </div>
+      </div>
+
+      {/* Button to go to welcome screen */}
+      <div className="relative z-10 mt-4 sm:mt-6 flex justify-center">
+        <button
+          onClick={onGoToWelcome}
+          className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none w-full max-w-sm md:max-w-md lg:max-w-lg px-4"
+          style={{
+            filter: "drop-shadow(0 0 40px rgba(218, 165, 32, 0.9))",
+          }}
+        >
+          <img
+            src={balaoTela2}
+            alt="Haz clic aquí y forma parte de esta cadena de oración"
+            className="w-full h-auto"
+          />
+        </button>
       </div>
     </div>
   );
