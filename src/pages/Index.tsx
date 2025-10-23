@@ -147,7 +147,7 @@ const Index = () => {
         {currentScreen === "screen3" && !isTransitioning && (
           <ChatScreen 
             onReturn={() => transitionTo("screen2")} 
-            onGoToWelcome={() => transitionTo("welcome")}
+            onGoToWelcome={() => transitionTo("main")}
           />
         )}
       </div>

@@ -69,51 +69,11 @@ export const ChatScreen = ({ onReturn, onGoToWelcome }: ChatScreenProps) => {
         <span className="text-[hsl(var(--dark-brown))] text-xl md:text-2xl font-bold">←</span>
       </button>
 
-      <div className="relative w-full max-w-[95vw] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl h-[75vh] sm:h-[70vh] md:h-[75vh] flex items-center justify-center mt-8 sm:mt-0">
-        <img
-          src={pergaminhoChat}
-          alt="Pergaminho"
-          className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-        />
-        <div 
-          className="relative z-10 w-[60%] sm:w-[70%] md:w-[68%] h-[58%] sm:h-[60%] md:h-[62%] overflow-y-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent mt-[10%] sm:mt-[8%] md:mt-[6%]"
-        >
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`mb-3 sm:mb-4 text-[hsl(var(--dark-brown))] text-[10px] sm:text-xs md:text-sm leading-relaxed whitespace-pre-line ${
-                message.startsWith("Tu mensaje:") ? "italic text-right" : ""
-              }`}
-            >
-              {message}
-            </div>
-          ))}
-          {showInput && (
-            <form onSubmit={handleSubmit} className="mt-3 sm:mt-4">
-              <textarea
-                value={userInput}
-                onChange={(e) => setUserInput(e.target.value)}
-                placeholder="Escribe tu nombre y tópico de oración..."
-                className="w-full p-2 sm:p-2 md:p-3 bg-[hsl(var(--parchment))] border-2 border-[hsl(var(--gold))] rounded-lg text-[hsl(var(--dark-brown))] text-[10px] sm:text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold-glow))] resize-none"
-                rows={3}
-              />
-              <button
-                type="submit"
-                className="mt-2 w-full py-2 px-3 sm:px-4 bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] text-xs sm:text-sm font-semibold rounded-lg hover:scale-105 transition-transform duration-300"
-              >
-                Enviar
-              </button>
-            </form>
-          )}
-          <div ref={chatEndRef} />
-        </div>
-      </div>
-
-      {/* Button to go to welcome screen */}
-      <div className="relative z-10 mt-4 sm:mt-6 flex justify-center">
+      {/* Button to go to main screen - above parchment */}
+      <div className="relative z-10 mb-4 sm:mb-6 flex justify-center">
         <button
           onClick={onGoToWelcome}
-          className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none w-full max-w-sm md:max-w-md lg:max-w-lg px-4"
+          className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none w-full max-w-[280px] sm:max-w-sm md:max-w-md px-4"
           style={{
             filter: "drop-shadow(0 0 40px rgba(218, 165, 32, 0.9))",
           }}
@@ -124,6 +84,20 @@ export const ChatScreen = ({ onReturn, onGoToWelcome }: ChatScreenProps) => {
             className="w-full h-auto"
           />
         </button>
+      </div>
+
+      <div className="relative w-full max-w-[95vw] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl h-[75vh] sm:h-[70vh] md:h-[75vh] flex items-center justify-center">
+        <img
+          src={pergaminhoChat}
+          alt="Pergaminho"
+          className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+        />
+        <div 
+          className="relative z-10 w-[60%] sm:w-[70%] md:w-[68%] h-[58%] sm:h-[60%] md:h-[62%] overflow-y-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent mt-[10%] sm:mt-[8%] md:mt-[6%]"
+        >
+...
+          <div ref={chatEndRef} />
+        </div>
       </div>
     </div>
   );
