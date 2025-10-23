@@ -110,16 +110,25 @@ const Index = () => {
               }}
             />
             
+            {/* Return button */}
+            <button
+              onClick={() => transitionTo("welcome")}
+              className="absolute top-4 left-4 md:top-6 md:left-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] flex items-center justify-center hover:scale-110 transition-transform duration-300"
+              aria-label="Volver"
+            >
+              <span className="text-[hsl(var(--dark-brown))] text-xl md:text-2xl font-bold">←</span>
+            </button>
+            
             {/* Content */}
-            <div className="relative z-10 flex flex-col items-center justify-center space-y-6 md:space-y-8">
+            <div className="relative z-10 flex flex-col items-center justify-center space-y-6 md:space-y-8 w-full">
               <img
                 src={pergaminhoTela2}
                 alt="Tu fe te ha traído hasta aquí"
-                className="w-full max-w-md md:max-w-2xl h-auto"
+                className="w-full max-w-sm md:max-w-2xl lg:max-w-3xl h-auto px-4"
               />
               <button
                 onClick={() => transitionTo("screen3")}
-                className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none max-w-[90vw] w-full max-w-md md:max-w-lg"
+                className="animate-golden-pulse-slow hover:scale-105 transition-transform duration-300 focus:outline-none w-full max-w-sm md:max-w-md lg:max-w-lg px-4"
                 style={{
                   filter: "drop-shadow(0 0 40px rgba(218, 165, 32, 0.9))",
                 }}
