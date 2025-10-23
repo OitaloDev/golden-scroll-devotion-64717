@@ -74,10 +74,7 @@ export const ChatScreen = ({ onReturn }: ChatScreenProps) => {
           className="absolute inset-0 w-full h-full object-contain pointer-events-none"
         />
         <div 
-          className="relative z-10 w-[72%] sm:w-[70%] md:w-[68%] h-[58%] sm:h-[60%] md:h-[62%] overflow-y-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent"
-          style={{
-            marginTop: "3%"
-          }}
+          className="relative z-10 w-[60%] sm:w-[70%] md:w-[68%] h-[58%] sm:h-[60%] md:h-[62%] overflow-y-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 scrollbar-thin scrollbar-thumb-[hsl(var(--gold))] scrollbar-track-transparent mt-[10%] sm:mt-[8%] md:mt-[6%]"
         >
           {messages.map((message, index) => (
             <div
