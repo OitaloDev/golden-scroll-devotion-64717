@@ -4,6 +4,7 @@ import backgroundGif from "@/assets/background.gif";
 import oracionSalud from "@/assets/oracion-salud.jpg";
 import oracionProteccion from "@/assets/oracion-proteccion.png";
 import oracionProsperidad from "@/assets/oracion-prosperidad.png";
+import oracionAmor from "@/assets/oracion-amor.png";
 
 interface PrayersScreenProps {
   onReturn: () => void;
@@ -18,19 +19,24 @@ interface Prayer {
 
 const prayers: Prayer[] = [
   {
-    id: "salud",
-    title: "Para la Salud Física y Mental",
-    image: oracionSalud,
-  },
-  {
     id: "proteccion",
-    title: "Para la Protección Espiritual y Contra Brujerías",
+    title: "PARA LA PROTECCIÓN ESPIRITUAL Y CONTRA BRUJERÍAS",
     image: oracionProteccion,
   },
   {
     id: "prosperidad",
-    title: "Para el Dinero y la Prosperidad",
+    title: "PARA EL DINERO Y LA PROSPERIDAD",
     image: oracionProsperidad,
+  },
+  {
+    id: "salud",
+    title: "PARA LA SALUD FÍSICA Y MENTAL",
+    image: oracionSalud,
+  },
+  {
+    id: "amor",
+    title: "PARA LOS PROBLEMAS DE AMOR Y RELACIONES",
+    image: oracionAmor,
   },
 ];
 
@@ -82,28 +88,41 @@ export const PrayersScreen = ({ onReturn }: PrayersScreenProps) => {
         </h1>
 
         {/* Prayer cards grid */}
-        <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+        <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {prayers.map((prayer) => (
-            <button
-              key={prayer.id}
-              onClick={() => handlePrayerClick(prayer)}
-              className="group relative overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
-              style={{
-                border: "3px solid hsl(var(--gold))",
-                boxShadow: "0 0 20px hsl(var(--gold) / 0.3)",
-              }}
-            >
-              <img
-                src={prayer.image}
-                alt={prayer.title}
-                className="w-full h-auto object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
-                <p className="text-[hsl(var(--gold))] text-center font-bold text-sm md:text-base">
-                  Ver Oración
-                </p>
-              </div>
-            </button>
+            <div key={prayer.id} className="flex flex-col gap-3 sm:gap-4">
+              {/* Title above image */}
+              <h2
+                className="text-center font-bold text-sm sm:text-base md:text-lg lg:text-xl px-2 leading-tight"
+                style={{
+                  color: "hsl(var(--gold))",
+                  textShadow: "0 0 15px hsl(var(--gold-glow)), 0 0 30px hsl(var(--gold-glow) / 0.4)",
+                }}
+              >
+                {prayer.title}
+              </h2>
+              
+              {/* Prayer image card */}
+              <button
+                onClick={() => handlePrayerClick(prayer)}
+                className="group relative overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
+                style={{
+                  border: "3px solid hsl(var(--gold))",
+                  boxShadow: "0 0 20px hsl(var(--gold) / 0.3)",
+                }}
+              >
+                <img
+                  src={prayer.image}
+                  alt={prayer.title}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                  <p className="text-[hsl(var(--gold))] text-center font-bold text-sm md:text-base">
+                    Ver Oración
+                  </p>
+                </div>
+              </button>
+            </div>
           ))}
         </div>
 
