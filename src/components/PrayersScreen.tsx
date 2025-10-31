@@ -70,9 +70,9 @@ export const PrayersScreen = ({ onReturn }: PrayersScreenProps) => {
       </button>
 
       {/* Content */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-start pt-20 pb-12 px-4">
+      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-start pt-16 sm:pt-20 pb-8 sm:pb-12 px-3 sm:px-4 md:px-6">
         <h1
-          className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-2"
           style={{
             color: "hsl(var(--gold))",
             textShadow: "0 0 20px hsl(var(--gold-glow)), 0 0 40px hsl(var(--gold-glow) / 0.5)",
@@ -82,7 +82,7 @@ export const PrayersScreen = ({ onReturn }: PrayersScreenProps) => {
         </h1>
 
         {/* Prayer cards grid */}
-        <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {prayers.map((prayer) => (
             <button
               key={prayer.id}
@@ -107,7 +107,7 @@ export const PrayersScreen = ({ onReturn }: PrayersScreenProps) => {
           ))}
         </div>
 
-        <p className="text-[hsl(var(--parchment))] text-center mt-12 max-w-2xl text-sm md:text-base">
+        <p className="text-[hsl(var(--parchment))] text-center mt-8 sm:mt-10 md:mt-12 max-w-2xl text-xs sm:text-sm md:text-base px-4">
           Haz clic en cualquier imagen para acceder a la oración correspondiente y recibir las bendiciones del Señor.
         </p>
       </div>
