@@ -54,17 +54,17 @@ export const MainScreen = ({
       {/* Content */}
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-4">
         {/* Saint image */}
-        <div className="mb-4 sm:mb-5 md:mb-6 lg:mb-8">
+        <div className="mb-3 sm:mb-4 md:mb-5 lg:mb-6">
           <img
             src={santoImage}
             alt="San Benito"
-            className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-contain"
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 object-contain"
           />
         </div>
 
         {/* Main title with glowing effect */}
         <h1 
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-1 sm:mb-2 md:mb-3 px-2"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-1 sm:mb-1.5 md:mb-2 px-2"
           style={{
             color: "hsl(var(--gold))",
             textShadow: "0 0 20px hsl(var(--gold-glow)), 0 0 40px hsl(var(--gold-glow) / 0.5)",
@@ -73,7 +73,7 @@ export const MainScreen = ({
           ALGO DIVINO ESTÁ A
         </h1>
         <h1 
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 px-2"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-2 sm:mb-3 md:mb-4 lg:mb-5 px-2"
           style={{
             color: "hsl(var(--gold))",
             textShadow: "0 0 20px hsl(var(--gold-glow)), 0 0 40px hsl(var(--gold-glow) / 0.5)",
@@ -83,17 +83,17 @@ export const MainScreen = ({
         </h1>
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-base md:text-lg text-[hsl(var(--parchment))] text-center mb-1 sm:mb-2 max-w-xs sm:max-w-md px-2">
+        <p className="text-xs sm:text-sm md:text-base text-[hsl(var(--parchment))] text-center mb-0.5 sm:mb-1 max-w-xs sm:max-w-md px-2">
           HAZ CLIC EN EL BOTÓN DE ABAJO PARA
         </p>
-        <p className="text-sm sm:text-base md:text-lg text-[hsl(var(--parchment))] text-center mb-3 sm:mb-4 max-w-xs sm:max-w-md px-2">
+        <p className="text-xs sm:text-sm md:text-base text-[hsl(var(--parchment))] text-center mb-2 sm:mb-3 max-w-xs sm:max-w-md px-2">
           ACCEDER A LAS ORACIONES
         </p>
 
         {/* Animated arrows */}
-        <div className="flex gap-4 mb-4">
+        <div className="flex gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3">
           <span 
-            className="text-[hsl(var(--gold))] text-4xl animate-arrow-bounce"
+            className="text-[hsl(var(--gold))] text-2xl sm:text-3xl md:text-4xl animate-arrow-bounce"
             style={{ 
               animationDelay: "0s",
               textShadow: "0 0 10px hsl(var(--gold-glow))"
@@ -102,7 +102,7 @@ export const MainScreen = ({
             ↓
           </span>
           <span 
-            className="text-[hsl(var(--gold))] text-4xl animate-arrow-bounce"
+            className="text-[hsl(var(--gold))] text-2xl sm:text-3xl md:text-4xl animate-arrow-bounce"
             style={{ 
               animationDelay: "0.2s",
               textShadow: "0 0 10px hsl(var(--gold-glow))"
@@ -111,7 +111,7 @@ export const MainScreen = ({
             ↓
           </span>
           <span 
-            className="text-[hsl(var(--gold))] text-4xl animate-arrow-bounce"
+            className="text-[hsl(var(--gold))] text-2xl sm:text-3xl md:text-4xl animate-arrow-bounce"
             style={{ 
               animationDelay: "0.4s",
               textShadow: "0 0 10px hsl(var(--gold-glow))"
@@ -124,7 +124,7 @@ export const MainScreen = ({
         {/* Prayers button */}
         <button
           onClick={onNavigateToPrayers}
-          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-full text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 md:mb-5 lg:mb-6 hover:scale-105 transition-transform duration-300 shadow-lg animate-gentle-glow mx-2"
+          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-2.5 md:py-3 rounded-full text-sm sm:text-base md:text-lg font-bold mb-2 sm:mb-3 md:mb-4 hover:scale-105 transition-transform duration-300 shadow-lg animate-gentle-glow mx-2"
           style={{
             boxShadow: "0 0 20px hsl(var(--gold) / 0.5), 0 0 40px hsl(var(--gold-glow) / 0.3)",
             border: "2px solid hsl(var(--gold))"
@@ -134,14 +134,14 @@ export const MainScreen = ({
         </button>
 
         {/* Small update text */}
-        <p className="text-xs sm:text-sm text-[hsl(var(--parchment))] text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8 max-w-xs sm:max-w-md px-2">
+        <p className="text-[10px] sm:text-xs md:text-sm text-[hsl(var(--parchment))] text-center mb-3 sm:mb-4 md:mb-5 max-w-xs sm:max-w-md px-2">
           CADA MES, LAS ORACIONES SE ACTUALIZARÁN, ¡NO TE LAS PIERDAS!
         </p>
 
         {/* Support button */}
         <button
           onClick={handleSupportClick}
-          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-full text-sm sm:text-base md:text-lg lg:text-xl font-bold hover:scale-105 transition-transform duration-300 shadow-lg mx-2"
+          className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-glow))] text-[hsl(var(--dark-brown))] px-4 sm:px-5 md:px-7 lg:px-9 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base lg:text-lg font-bold hover:scale-105 transition-transform duration-300 shadow-lg mx-2"
           style={{
             boxShadow: "0 0 20px hsl(var(--gold) / 0.5), 0 0 40px hsl(var(--gold-glow) / 0.3)",
             border: "2px solid hsl(var(--gold))"
